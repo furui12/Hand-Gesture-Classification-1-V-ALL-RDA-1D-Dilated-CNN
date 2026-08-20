@@ -21,6 +21,8 @@ To use the C++ files:
 2) Place the two `[name_of_tflite_model].h` files in the working directory where you have the `esp32_emg.ino` file. (The advised method is to use the Arduino software to create a working directory for your project, copy all of the code from `esp32_emg.ino` and paste it into the main file in the newly created directory, and place the two .h files into this working directory.)
 3) Change the "model headers" section's file names to ensure that they have the same names as the `[name_of_tflite_model].h` files you have in your working directory.
 4) Verify that all sensor pin declarations match the proper naming methods that are laid out in your ESP32's documentation for your current wiring setup.
+5) Implement the preprocessing methods into the `preprocess_emg_signals()` function to ensure that the data matches the quality of the data provided to the Python scripts for training the machine learning algorithms.
+6) Finally, ensure that the gesture commands actuate the fingers to the correct degree (the implementation and degree of motion for the motors is almost certainly necessary to adjust, and may require independent testing to determine what degree measurements are necessary for each gesture), then compile and execute the code to be run on the connected ESP32, move the ESP32 to your setup to be powered by a battery or independent DC power source, and test on a user for validation.
 
 ### Setup
 This project will require, at minimum:
