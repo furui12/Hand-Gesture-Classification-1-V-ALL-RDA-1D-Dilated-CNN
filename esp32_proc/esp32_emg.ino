@@ -65,6 +65,10 @@ const int8_t INPUT_ZERO_POINT;
 const float OUTPUT_SCALE;
 const int8_t OUTPUT_ZERO_POINT;
 
+//  --- Signal Preprocessing ---
+void preprocess_emg_signals(float* ch1, float* ch2, int n) {
+}
+
 // --- Feature Extraction Math ---
 
 float calculate_rms(const float* x, int n) {
@@ -338,6 +342,8 @@ void loop() {
 //             // while the background WiFi stack runs on Core 0.
 //         }
 //     }
+//     // --- STEP 0: Preprocess EMG Data ---
+//     preprocess_emg_signals(emg_data[0], emg_data[1], SAMPLES_PER_WINDOW);
 //
 //     // --- STEP 1: RDA Inference ---
 //     extract_rda_features(emg_data[0], emg_data[1], SAMPLES_PER_WINDOW, rda_features);
